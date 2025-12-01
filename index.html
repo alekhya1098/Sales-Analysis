@@ -1,0 +1,1918 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Analysis Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Right Navigation Sidebar -->
+    <div class="right-nav-sidebar">
+        <div class="nav-header">
+            <h3>Navigation</h3>
+            <button class="nav-toggle" onclick="toggleNav()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="user-info-section">
+            <div class="user-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="user-details">
+                <div class="user-name" id="navUsername">Admin</div>
+                <div class="user-role" id="navUserRole">Administrator</div>
+            </div>
+        </div>
+        
+        <div class="nav-section">
+            <h4>Dashboards</h4>
+            <a href="index.html" class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Admin Dashboard</span>
+            </a>
+            <a href="executive-viewer.html" class="nav-item">
+                <i class="fas fa-eye"></i>
+                <span>Executive Viewer</span>
+            </a>
+            <a href="sales-manager.html" class="nav-item">
+                <i class="fas fa-users-cog"></i>
+                <span>Sales Manager</span>
+            </a>
+            <a href="sales-analyst.html" class="nav-item">
+                <i class="fas fa-chart-bar"></i>
+                <span>Sales Analyst</span>
+            </a>
+            <a href="customers.html" class="nav-item">
+                <i class="fas fa-user-tie"></i>
+                <span>Sales Executive</span>
+            </a>
+        </div>
+        
+        <div class="nav-section">
+            <h4>Analytics</h4>
+            <a href="products.html" class="nav-item">
+                <i class="fas fa-box"></i>
+                <span>Product Analytics</span>
+            </a>
+        </div>
+        
+        <div class="nav-section nav-footer">
+            <button class="logout-btn-nav" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Navigation Toggle Button -->
+    <button class="nav-toggle-btn" onclick="toggleNav()">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Overlay -->
+    <div class="nav-overlay" onclick="toggleNav()"></div>
+    
+    <div class="container">
+        <header>
+            <button class="nav-toggle-btn-header" onclick="toggleNav()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1>Sales Analysis Dashboard</h1>
+        </header>
+
+        <main>
+            <!-- Admin Dashboard -->
+            <div id="admin-dashboard" class="dashboard active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Revenue</h3>
+                        <div class="stat-value">$2.4M</div>
+                        <div class="stat-change positive">+18.2%</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Profit Margin</h3>
+                        <div class="stat-value">24.5%</div>
+                        <div class="stat-change positive">+3.1%</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Orders</h3>
+                        <div class="stat-value">8,456</div>
+                        <div class="stat-change positive">+12%</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Budget Achievement</h3>
+                        <div class="stat-value">108%</div>
+                        <div class="stat-change positive">+8%</div>
+                    </div>
+                </div>
+                
+                <!-- Monthly Total Orders and Revenue Section -->
+                <div class="revenue-section">
+                    <h1>📊 Monthly Total Orders and Revenue</h1>
+                    <div class="sub">Bar chart of revenue by month and the detailed table.</div>
+                    <div class="card">
+                        <img src="monthly_revenue_bar.png" alt="Monthly Revenue Bar Chart" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Orders by Channel and Regional Revenue Distribution - Side by Side -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>📊 Orders by Channel</h1>
+                        <div class="sub">Pie chart showing the distribution of orders across different channels.</div>
+                        <div class="card">
+                            <img src="channelpie.png" alt="Orders by Channel Pie Chart" class="chart" style="max-width: 350px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                    <div class="product-section">
+                        <h1>📍 Regional Revenue Distribution</h1>
+                        <div class="sub">Pie chart showing revenue distribution across regions.</div>
+                        <div class="card">
+                            <img src="regionalrevenuedistribution.png" alt="Regional Revenue Distribution" class="chart" style="max-width: 350px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Sales Breakdown Section -->
+                <div class="revenue-section">
+                    <h1>📦 Product Sales Breakdown</h1>
+                    <div class="sub">Bar chart showing sales breakdown by product category.</div>
+                    <div class="card">
+                        <img src="productsales.png" alt="Product Sales Breakdown" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Monthly Profit Trend Section -->
+                <div class="revenue-section">
+                    <h1>📈 Monthly Profit Trend</h1>
+                    <div class="sub">Line chart showing the profit trend over time.</div>
+                    <div class="card">
+                        <img src="monthlyprofitline.png" alt="Monthly Profit Trend" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Revenue and Profit Trend Section -->
+                <div class="revenue-section">
+                    <h1>📊 Revenue & Profit Trend Over Time</h1>
+                    <div class="sub">Line chart showing revenue and profit trends over time.</div>
+                    <div class="card">
+                        <img src="revenueandprofittrend.png" alt="Revenue and Profit Trend" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Year-over-Year Growth Section -->
+                <div class="revenue-section">
+                    <h1>📈 Year-over-Year Growth Percentage</h1>
+                    <div class="sub">Line chart showing YoY growth rate trends over time.</div>
+                    <div class="card">
+                        <img src="yoygrowth%.png" alt="Year-over-Year Growth Percentage" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Channel Contribution Section -->
+                <div class="revenue-section">
+                    <h1>📊 Channel Contribution to Total Revenue (by Month)</h1>
+                    <div class="sub">Stacked bar chart showing revenue contribution by channel over time.</div>
+                    <div class="card">
+                        <img src="channelcontribution.png" alt="Channel Contribution to Total Revenue" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Sales by State Section -->
+                <div class="revenue-section">
+                    <h1>🗺️ Sales by State</h1>
+                    <div class="sub">Bar chart showing sales distribution across different states.</div>
+                    <div class="card">
+                        <img src="salesbystate.png" alt="Sales by State" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Orders vs Budgets Section -->
+                <div class="revenue-section">
+                    <h1>📊 Orders vs Budgets by Product</h1>
+                    <div class="sub">Scatter plot showing the relationship between orders and budgets for each product.</div>
+                    <div class="card">
+                        <img src="ordervsbudgets.png" alt="Orders vs Budgets by Product" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Correlation Heatmap Section - Half Width -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>🔥 Correlation Heatmap</h1>
+                        <div class="sub">Heatmap showing correlations between unit price, order quantity, and profit margin.</div>
+                        <div class="card">
+                            <img src="correlationheatmap.png" alt="Correlation Heatmap" class="chart" style="max-width: 400px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                    <div class="product-section">
+                        <h1>📊 Distribution of Profit Margins</h1>
+                        <div class="sub">Histogram showing the distribution of profit margins across products.</div>
+                        <div class="card">
+                            <img src="profitmargins.png" alt="Distribution of Profit Margins" class="chart" style="max-width: 400px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Seasonality of Orders Section -->
+                <div class="revenue-section">
+                    <h1>📅 Seasonality of Orders (Monthly Order Trend)</h1>
+                    <div class="sub">Line chart showing the seasonal patterns and trends in order volume over time.</div>
+                    <div class="card">
+                        <img src="seasonalityorders.png" alt="Seasonality of Orders" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Revenue vs Profit by Product Section -->
+                <div class="revenue-section">
+                    <h1>💰 Revenue vs Profit by Product</h1>
+                    <div class="sub">Scatter plot showing the relationship between revenue and profit for each product.</div>
+                    <div class="card">
+                        <img src="revenuevsprofitbyproduct.png" alt="Revenue vs Profit by Product" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Channel Share Section - Side by Side -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>📊 Revenue Share by Channel</h1>
+                        <div class="sub">Pie chart showing revenue distribution across different channels.</div>
+                        <div class="card">
+                            <img src="revenue_share_by_channel_pie_labels.png" alt="Revenue Share by Channel" class="chart" style="max-width: 400px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                    <div class="product-section">
+                        <h1>💼 Profit Share by Channel</h1>
+                        <div class="sub">Pie chart showing profit distribution across different channels.</div>
+                        <div class="card">
+                            <img src="profit_share_by_channel_pie_labels.png" alt="Profit Share by Channel" class="chart" style="max-width: 400px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Geographical Customer Distribution Section - Half Width -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>🗺️ Geographical Customer Distribution</h1>
+                        <div class="sub">Map showing customer distribution and revenue across different states.</div>
+                        <div class="card" style="cursor: pointer;" onclick="window.location.href='us_revenue_map.html'">
+                            <img src="revenuebystate.png" alt="Geographical Customer Distribution by State" class="chart" style="max-width: 400px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                    <div class="product-section" style="visibility: hidden;">
+                        <!-- Empty space to maintain half-width layout -->
+                    </div>
+                </div>
+                
+                <!-- Products Comparison Section - Side by Side -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>🏆 Top 10 Products by Revenue</h1>
+                        <div class="sub">Bar chart showing the top performing products by total revenue.</div>
+                        <div class="card">
+                            <img src="output.png" alt="Top 10 Products by Revenue" class="chart" />
+                        </div>
+                    </div>
+                    
+                    <div class="product-section">
+                        <h1>📉 Bottom 10 Products by Revenue</h1>
+                        <div class="sub">Bar chart showing the lowest performing products by total revenue.</div>
+                        <div class="card">
+                            <img src="bottom10_products.png" alt="Bottom 10 Products by Revenue" class="chart" />
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- States Comparison Section - Side by Side -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>🌟 Top 10 Performing States by Revenue</h1>
+                        <div class="sub">Bar chart showing the top performing states by total revenue.</div>
+                        <div class="card">
+                            <img src="top10_states.png" alt="Top 10 Performing States by Revenue" class="chart" />
+                        </div>
+                    </div>
+                    
+                    <div class="product-section">
+                        <h1>📊 Bottom 10 Performing States by Revenue</h1>
+                        <div class="sub">Bar chart showing the lowest performing states by total revenue.</div>
+                        <div class="card">
+                            <img src="bottom10_states.png" alt="Bottom 10 Performing States by Revenue" class="chart" />
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Customers Comparison Section - Side by Side Tables -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>📊 Top 10 Customers by Revenue</h1>
+                        <div class="sub">Table showing the top performing customers by total revenue.</div>
+                        <div class="card">
+                            <table class="dataframe table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Customer Name</th>
+                                        <th>Total Revenue</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Aibox Company</td>
+                                        <td>$12,641,251.80</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>State Ltd</td>
+                                        <td>$12,220,639.20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Pixoboo Corp</td>
+                                        <td>$10,986,459.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Organon Corp</td>
+                                        <td>$10,955,826.60</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Realbuzz Ltd</td>
+                                        <td>$10,753,299.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>WOCKHARDT Group</td>
+                                        <td>$10,701,963.60</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Kare Corp</td>
+                                        <td>$10,635,633.60</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Colgate-Pa Group</td>
+                                        <td>$10,107,003.60</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Golden Corp</td>
+                                        <td>$10,007,669.40</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>Deseret Group</td>
+                                        <td>$9,942,223.80</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="product-section">
+                        <h1>📈 Bottom 10 Customers by Revenue</h1>
+                        <div class="sub">Table showing the lowest performing customers by total revenue.</div>
+                        <div class="card">
+                            <table class="dataframe table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Customer Name</th>
+                                        <th>Total Revenue</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>BB17 Company</td>
+                                        <td>$4,034,673.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Yodoo Ltd</td>
+                                        <td>$4,372,755.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Mycone Ltd</td>
+                                        <td>$4,534,238.40</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Voonyx Group</td>
+                                        <td>$4,670,918.40</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>SEINDNI Corp</td>
+                                        <td>$4,760,162.40</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Epic Group</td>
+                                        <td>$4,807,960.20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Quaxo Ltd</td>
+                                        <td>$5,026,206.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Aveda Group</td>
+                                        <td>$5,037,100.20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Zoomdog Corp</td>
+                                        <td>$5,047,914.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>Johnson Ltd</td>
+                                        <td>$5,083,410.60</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales Analyst Dashboard -->
+            <div id="sales-analyst-dashboard" class="dashboard">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Avg Profit Margin</h3>
+                        <div class="stat-value">22.8%</div>
+                        <div class="stat-change positive">+2.4%</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Channel Efficiency</h3>
+                        <div class="stat-value">$285</div>
+                        <div class="stat-change positive">+8.7%</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Correlation Score</h3>
+                        <div class="stat-value">0.78</div>
+                        <div class="stat-change positive">+0.05</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Seasonality Index</h3>
+                        <div class="stat-value">1.24</div>
+                        <div class="stat-change neutral">-0.02</div>
+                    </div>
+                </div>
+                
+                <!-- Correlation Heatmap Section - Half Width -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>🔥 Correlation Heatmap</h1>
+                        <div class="sub">Heatmap showing correlations between unit price, order quantity, and profit margin.</div>
+                        <div class="card">
+                            <img src="correlationheatmap.png" alt="Correlation Heatmap" class="chart" style="max-width: 400px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                    <div class="product-section">
+                        <h1>📊 Distribution of Profit Margins</h1>
+                        <div class="sub">Histogram showing the distribution of profit margins across products.</div>
+                        <div class="card">
+                            <img src="profitmargins.png" alt="Distribution of Profit Margins" class="chart" style="max-width: 400px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Seasonality of Orders Section -->
+                <div class="revenue-section">
+                    <h1>📅 Seasonality of Orders (Monthly Order Trend)</h1>
+                    <div class="sub">Line chart showing the seasonal patterns and trends in order volume over time.</div>
+                    <div class="card">
+                        <img src="seasonalityorders.png" alt="Seasonality of Orders" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Revenue vs Profit by Product Section -->
+                <div class="revenue-section">
+                    <h1>💰 Revenue vs Profit by Product</h1>
+                    <div class="sub">Scatter plot showing the relationship between revenue and profit for each product.</div>
+                    <div class="card">
+                        <img src="revenuevsprofitbyproduct.png" alt="Revenue vs Profit by Product" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Channel Share Section - Side by Side -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>📊 Revenue Share by Channel</h1>
+                        <div class="sub">Pie chart showing revenue distribution across different channels.</div>
+                        <div class="card">
+                            <img src="revenue_share_by_channel_pie_labels.png" alt="Revenue Share by Channel" class="chart" style="max-width: 400px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                    <div class="product-section">
+                        <h1>💼 Profit Share by Channel</h1>
+                        <div class="sub">Pie chart showing profit distribution across different channels.</div>
+                        <div class="card">
+                            <img src="profit_share_by_channel_pie_labels.png" alt="Profit Share by Channel" class="chart" style="max-width: 400px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales Executive Dashboard -->
+            <div id="sales-executive-dashboard" class="dashboard">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>My Total Orders</h3>
+                        <div class="stat-value">156</div>
+                        <div class="stat-change positive">+18</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>My Revenue</h3>
+                        <div class="stat-value">$89,450</div>
+                        <div class="stat-change positive">+24.5%</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Active Customers</h3>
+                        <div class="stat-value">42</div>
+                        <div class="stat-change positive">+7</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Monthly Profit</h3>
+                        <div class="stat-value">$21,340</div>
+                        <div class="stat-change positive">+15.2%</div>
+                    </div>
+                </div>
+                
+                <!-- Monthly Total Orders and Revenue Section -->
+                <div class="revenue-section">
+                    <h1>📊 Monthly Total Orders and Revenue</h1>
+                    <div class="sub">Bar chart of revenue by month and the detailed table.</div>
+                    <div class="card">
+                        <img src="monthly_revenue_bar.png" alt="Monthly Revenue Bar Chart" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Orders by Channel and Geographical Customer Distribution - Side by Side -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>📊 Orders by Channel</h1>
+                        <div class="sub">Pie chart showing the distribution of orders across different channels.</div>
+                        <div class="card">
+                            <img src="channelpie.png" alt="Orders by Channel Pie Chart" class="chart" style="max-width: 350px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                    <div class="product-section">
+                        <h1>🗺️ Geographical Customer Distribution</h1>
+                        <div class="sub">Map showing customer distribution and revenue across different states.</div>
+                        <div class="card" style="cursor: pointer;" onclick="window.location.href='us_revenue_map.html'">
+                            <img src="revenuebystate.png" alt="Geographical Customer Distribution by State" class="chart" style="max-width: 400px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Sales Breakdown Section -->
+                <div class="revenue-section">
+                    <h1>📦 Product Sales Breakdown</h1>
+                    <div class="sub">Bar chart showing sales breakdown by product category.</div>
+                    <div class="card">
+                        <img src="productsales.png" alt="Product Sales Breakdown" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Monthly Profit Trend Section -->
+                <div class="revenue-section">
+                    <h1>📈 Monthly Profit Trend</h1>
+                    <div class="sub">Line chart showing the profit trend over time.</div>
+                    <div class="card">
+                        <img src="monthlyprofitline.png" alt="Monthly Profit Trend" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Products Comparison Section - Side by Side -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>🏆 Top 10 Products by Revenue</h1>
+                        <div class="sub">Bar chart showing the top performing products by total revenue.</div>
+                        <div class="card">
+                            <img src="output.png" alt="Top 10 Products by Revenue" class="chart" />
+                        </div>
+                    </div>
+                    
+                    <div class="product-section">
+                        <h1>📉 Bottom 10 Products by Revenue</h1>
+                        <div class="sub">Bar chart showing the lowest performing products by total revenue.</div>
+                        <div class="card">
+                            <img src="bottom10_products.png" alt="Bottom 10 Products by Revenue" class="chart" />
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Customers Comparison Section - Side by Side Tables -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>📊 Top 10 Customers by Revenue</h1>
+                        <div class="sub">Table showing the top performing customers by total revenue.</div>
+                        <div class="card">
+                            <table class="dataframe table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Customer Name</th>
+                                        <th>Total Revenue</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Aibox Company</td>
+                                        <td>$12,641,251.80</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>State Ltd</td>
+                                        <td>$12,220,639.20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Pixoboo Corp</td>
+                                        <td>$10,986,459.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Organon Corp</td>
+                                        <td>$10,955,826.60</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Realbuzz Ltd</td>
+                                        <td>$10,753,299.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>WOCKHARDT Group</td>
+                                        <td>$10,701,963.60</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Kare Corp</td>
+                                        <td>$10,635,633.60</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Colgate-Pa Group</td>
+                                        <td>$10,107,003.60</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Golden Corp</td>
+                                        <td>$10,007,669.40</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>Deseret Group</td>
+                                        <td>$9,942,223.80</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="product-section">
+                        <h1>📈 Bottom 10 Customers by Revenue</h1>
+                        <div class="sub">Table showing the lowest performing customers by total revenue.</div>
+                        <div class="card">
+                            <table class="dataframe table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Customer Name</th>
+                                        <th>Total Revenue</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>BB17 Company</td>
+                                        <td>$4,034,673.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Yodoo Ltd</td>
+                                        <td>$4,372,755.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Mycone Ltd</td>
+                                        <td>$4,534,238.40</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Voonyx Group</td>
+                                        <td>$4,670,918.40</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>SEINDNI Corp</td>
+                                        <td>$4,760,162.40</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Epic Group</td>
+                                        <td>$4,807,960.20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Quaxo Ltd</td>
+                                        <td>$5,026,206.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Aveda Group</td>
+                                        <td>$5,037,100.20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Zoomdog Corp</td>
+                                        <td>$5,047,914.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>Johnson Ltd</td>
+                                        <td>$5,083,410.60</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </main>
+    </div>
+
+    <!-- Visibility Control Modal -->
+    <div id="visibilityModal" class="visibility-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Card Visibility Settings</h2>
+                <button class="close-modal" onclick="closeVisibilityModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h3 id="modalCardTitle">Card Name</h3>
+                <p style="color: #7f8c8d; margin-bottom: 20px;">Select which roles can view this card:</p>
+                <div class="role-checkboxes">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="role-executive-viewer" value="executive-viewer">
+                        <label for="role-executive-viewer">Executive Viewer</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="role-sales-manager" value="sales-manager">
+                        <label for="role-sales-manager">Sales Manager</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="role-sales-analyst" value="sales-analyst">
+                        <label for="role-sales-analyst">Sales Analyst</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="role-sales-executive" value="sales-executive">
+                        <label for="role-sales-executive">Sales Executive</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-secondary" onclick="closeVisibilityModal()">Cancel</button>
+                <button class="modal-btn modal-btn-primary" onclick="saveVisibilitySettings()">Save Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth-check.js"></script>
+    <script src="script.js"></script>
+    <script src="add-visibility-controls.js"></script>
+    <script>
+        // Visibility Control System
+        let currentCardId = null;
+        let visibilitySettings = JSON.parse(localStorage.getItem('cardVisibility')) || {};
+
+        function openVisibilityModal(cardId, cardTitle) {
+            currentCardId = cardId;
+            document.getElementById('modalCardTitle').textContent = cardTitle;
+            document.getElementById('visibilityModal').classList.add('active');
+            
+            // Load current settings
+            const settings = visibilitySettings[cardId] || [];
+            document.querySelectorAll('.role-checkboxes input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = settings.includes(checkbox.value);
+            });
+        }
+
+        function closeVisibilityModal() {
+            document.getElementById('visibilityModal').classList.remove('active');
+            currentCardId = null;
+        }
+
+        function saveVisibilitySettings() {
+            if (!currentCardId) return;
+            
+            const selectedRoles = [];
+            document.querySelectorAll('.role-checkboxes input[type="checkbox"]:checked').forEach(checkbox => {
+                selectedRoles.push(checkbox.value);
+            });
+            
+            visibilitySettings[currentCardId] = selectedRoles;
+            localStorage.setItem('cardVisibility', JSON.stringify(visibilitySettings));
+            
+            // Save card data for customer dashboard
+            saveCardData();
+            
+            // Update visibility indicators
+            updateVisibilityIndicators();
+            
+            closeVisibilityModal();
+            
+            // Show success message
+            alert('Visibility settings saved successfully!');
+        }
+        
+        function saveCardData() {
+            const cardData = {};
+            const adminDashboard = document.getElementById('admin-dashboard');
+            
+            if (!adminDashboard) return;
+            
+            // Get all cards with data-card-id
+            const allCards = adminDashboard.querySelectorAll('[data-card-id]');
+            
+            allCards.forEach(card => {
+                const cardId = card.getAttribute('data-card-id');
+                cardData[cardId] = {
+                    className: card.className,
+                    html: card.innerHTML
+                };
+            });
+            
+            localStorage.setItem('cardData', JSON.stringify(cardData));
+            console.log('Card data saved:', Object.keys(cardData).length, 'cards');
+        }
+
+        function updateVisibilityIndicators() {
+            document.querySelectorAll('[data-card-id]').forEach(card => {
+                const cardId = card.getAttribute('data-card-id');
+                const settings = visibilitySettings[cardId] || [];
+                
+                // Remove existing indicator
+                const existingIndicator = card.querySelector('.visibility-indicator');
+                if (existingIndicator) {
+                    existingIndicator.remove();
+                }
+                
+                // Add new indicator if roles are selected
+                if (settings.length > 0) {
+                    const indicator = document.createElement('span');
+                    indicator.className = 'visibility-indicator';
+                    indicator.textContent = `Visible to ${settings.length} role(s)`;
+                    const h1 = card.querySelector('h1');
+                    if (h1) {
+                        h1.appendChild(indicator);
+                    }
+                }
+            });
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('visibilityModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVisibilityModal();
+            }
+        });
+
+        // Initialize visibility indicators on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for add-visibility-controls.js to finish adding controls
+            setTimeout(function() {
+                updateVisibilityIndicators();
+                saveCardData(); // Save card data for customer dashboard
+            }, 500);
+        });
+    </script>
+    
+    <script>
+        // Populate user info in navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const username = sessionStorage.getItem('username') || 'Admin';
+            const role = sessionStorage.getItem('role') || 'admin';
+            
+            // Update navigation user info
+            const navUsername = document.getElementById('navUsername');
+            const navUserRole = document.getElementById('navUserRole');
+            
+            if (navUsername) {
+                navUsername.textContent = username.charAt(0).toUpperCase() + username.slice(1);
+            }
+            
+            if (navUserRole) {
+                const roleNames = {
+                    'admin': 'Administrator',
+                    'executive-viewer': 'Executive Viewer',
+                    'sales-manager': 'Sales Manager',
+                    'sales-analyst': 'Sales Analyst',
+                    'sales-executive': 'Sales Executive'
+                };
+                navUserRole.textContent = roleNames[role] || role.replace('-', ' ');
+            }
+        });
+        
+        // Navigation sidebar toggle
+        function toggleNav() {
+            const sidebar = document.querySelector('.right-nav-sidebar');
+            const overlay = document.querySelector('.nav-overlay');
+            const body = document.body;
+            
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            body.classList.toggle('nav-open');
+        }
+        
+        // Logout function
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                sessionStorage.clear();
+                window.location.href = 'login.html';
+            }
+        }
+        
+        // Close nav when pressing Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const sidebar = document.querySelector('.right-nav-sidebar');
+                if (sidebar.classList.contains('active')) {
+                    toggleNav();
+                }
+            }
+        });
+    </script>
+</body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Analysis Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Right Navigation Sidebar -->
+    <div class="right-nav-sidebar">
+        <div class="nav-header">
+            <h3>Navigation</h3>
+            <button class="nav-toggle" onclick="toggleNav()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="user-info-section">
+            <div class="user-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="user-details">
+                <div class="user-name" id="navUsername">Admin</div>
+                <div class="user-role" id="navUserRole">Administrator</div>
+            </div>
+        </div>
+        
+        <div class="nav-section">
+            <h4>Dashboard</h4>
+            <a href="index.html" class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Admin Dashboard</span>
+            </a>
+        </div>
+        
+        <div class="nav-section">
+            <h4>Analytics</h4>
+            <a href="products.html" class="nav-item">
+                <i class="fas fa-box"></i>
+                <span>Product Analytics</span>
+            </a>
+        </div>
+        
+        <div class="nav-section nav-footer">
+            <button class="logout-btn-nav" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Navigation Toggle Button -->
+    <button class="nav-toggle-btn" onclick="toggleNav()">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Overlay -->
+    <div class="nav-overlay" onclick="toggleNav()"></div>
+    
+    <div class="container">
+        <header>
+            <button class="nav-toggle-btn-header" onclick="toggleNav()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1>Sales Analysis Dashboard</h1>
+        </header>
+
+        <main>
+            <!-- Admin Dashboard -->
+            <div id="admin-dashboard" class="dashboard active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Revenue</h3>
+                        <div class="stat-value">$2.4M</div>
+                        <div class="stat-change positive">+18.2%</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Profit Margin</h3>
+                        <div class="stat-value">24.5%</div>
+                        <div class="stat-change positive">+3.1%</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Orders</h3>
+                        <div class="stat-value">8,456</div>
+                        <div class="stat-change positive">+12%</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Budget Achievement</h3>
+                        <div class="stat-value">108%</div>
+                        <div class="stat-change positive">+8%</div>
+                    </div>
+                </div>
+                
+                <!-- Monthly Total Orders and Revenue Section -->
+                <div class="revenue-section">
+                    <h1>📊 Monthly Total Orders and Revenue</h1>
+                    <div class="sub">Bar chart of revenue by month and the detailed table.</div>
+                    <div class="card">
+                        <img src="monthly_revenue_bar.png" alt="Monthly Revenue Bar Chart" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Orders by Channel and Regional Revenue Distribution - Side by Side -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>📊 Orders by Channel</h1>
+                        <div class="sub">Pie chart showing the distribution of orders across different channels.</div>
+                        <div class="card">
+                            <img src="channelpie.png" alt="Orders by Channel Pie Chart" class="chart" style="max-width: 350px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                    <div class="product-section">
+                        <h1>📍 Regional Revenue Distribution</h1>
+                        <div class="sub">Pie chart showing revenue distribution across regions.</div>
+                        <div class="card">
+                            <img src="regionalrevenuedistribution.png" alt="Regional Revenue Distribution" class="chart" style="max-width: 350px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Sales Breakdown Section -->
+                <div class="revenue-section">
+                    <h1>📦 Product Sales Breakdown</h1>
+                    <div class="sub">Bar chart showing sales breakdown by product category.</div>
+                    <div class="card">
+                        <img src="productsales.png" alt="Product Sales Breakdown" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Monthly Profit Trend Section -->
+                <div class="revenue-section">
+                    <h1>📈 Monthly Profit Trend</h1>
+                    <div class="sub">Line chart showing the profit trend over time.</div>
+                    <div class="card">
+                        <img src="monthlyprofitline.png" alt="Monthly Profit Trend" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Revenue and Profit Trend Section -->
+                <div class="revenue-section">
+                    <h1>📊 Revenue & Profit Trend Over Time</h1>
+                    <div class="sub">Line chart showing revenue and profit trends over time.</div>
+                    <div class="card">
+                        <img src="revenueandprofittrend.png" alt="Revenue and Profit Trend" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Year-over-Year Growth Section -->
+                <div class="revenue-section">
+                    <h1>📈 Year-over-Year Growth Percentage</h1>
+                    <div class="sub">Line chart showing YoY growth rate trends over time.</div>
+                    <div class="card">
+                        <img src="yoygrowth%.png" alt="Year-over-Year Growth Percentage" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Channel Contribution Section -->
+                <div class="revenue-section">
+                    <h1>📊 Channel Contribution to Total Revenue (by Month)</h1>
+                    <div class="sub">Stacked bar chart showing revenue contribution by channel over time.</div>
+                    <div class="card">
+                        <img src="channelcontribution.png" alt="Channel Contribution to Total Revenue" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Sales by State Section -->
+                <div class="revenue-section">
+                    <h1>🗺️ Sales by State</h1>
+                    <div class="sub">Bar chart showing sales distribution across different states.</div>
+                    <div class="card">
+                        <img src="salesbystate.png" alt="Sales by State" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Orders vs Budgets Section -->
+                <div class="revenue-section">
+                    <h1>📊 Orders vs Budgets by Product</h1>
+                    <div class="sub">Scatter plot showing the relationship between orders and budgets for each product.</div>
+                    <div class="card">
+                        <img src="ordervsbudgets.png" alt="Orders vs Budgets by Product" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Correlation Heatmap Section - Half Width -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>🔥 Correlation Heatmap</h1>
+                        <div class="sub">Heatmap showing correlations between unit price, order quantity, and profit margin.</div>
+                        <div class="card">
+                            <img src="correlationheatmap.png" alt="Correlation Heatmap" class="chart" style="max-width: 400px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                    <div class="product-section">
+                        <h1>📊 Distribution of Profit Margins</h1>
+                        <div class="sub">Histogram showing the distribution of profit margins across products.</div>
+                        <div class="card">
+                            <img src="profitmargins.png" alt="Distribution of Profit Margins" class="chart" style="max-width: 400px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Seasonality of Orders Section -->
+                <div class="revenue-section">
+                    <h1>📅 Seasonality of Orders (Monthly Order Trend)</h1>
+                    <div class="sub">Line chart showing the seasonal patterns and trends in order volume over time.</div>
+                    <div class="card">
+                        <img src="seasonalityorders.png" alt="Seasonality of Orders" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Revenue vs Profit by Product Section -->
+                <div class="revenue-section">
+                    <h1>💰 Revenue vs Profit by Product</h1>
+                    <div class="sub">Scatter plot showing the relationship between revenue and profit for each product.</div>
+                    <div class="card">
+                        <img src="revenuevsprofitbyproduct.png" alt="Revenue vs Profit by Product" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Channel Share Section - Side by Side -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>📊 Revenue Share by Channel</h1>
+                        <div class="sub">Pie chart showing revenue distribution across different channels.</div>
+                        <div class="card">
+                            <img src="revenue_share_by_channel_pie_labels.png" alt="Revenue Share by Channel" class="chart" style="max-width: 400px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                    <div class="product-section">
+                        <h1>💼 Profit Share by Channel</h1>
+                        <div class="sub">Pie chart showing profit distribution across different channels.</div>
+                        <div class="card">
+                            <img src="profit_share_by_channel_pie_labels.png" alt="Profit Share by Channel" class="chart" style="max-width: 400px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Geographical Customer Distribution Section - Half Width -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>🗺️ Geographical Customer Distribution</h1>
+                        <div class="sub">Map showing customer distribution and revenue across different states.</div>
+                        <div class="card" style="cursor: pointer;" onclick="window.location.href='us_revenue_map.html'">
+                            <img src="revenuebystate.png" alt="Geographical Customer Distribution by State" class="chart" style="max-width: 400px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                    <div class="product-section" style="visibility: hidden;">
+                        <!-- Empty space to maintain half-width layout -->
+                    </div>
+                </div>
+                
+                <!-- Products Comparison Section - Side by Side -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>🏆 Top 10 Products by Revenue</h1>
+                        <div class="sub">Bar chart showing the top performing products by total revenue.</div>
+                        <div class="card">
+                            <img src="output.png" alt="Top 10 Products by Revenue" class="chart" />
+                        </div>
+                    </div>
+                    
+                    <div class="product-section">
+                        <h1>📉 Bottom 10 Products by Revenue</h1>
+                        <div class="sub">Bar chart showing the lowest performing products by total revenue.</div>
+                        <div class="card">
+                            <img src="bottom10_products.png" alt="Bottom 10 Products by Revenue" class="chart" />
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- States Comparison Section - Side by Side -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>🌟 Top 10 Performing States by Revenue</h1>
+                        <div class="sub">Bar chart showing the top performing states by total revenue.</div>
+                        <div class="card">
+                            <img src="top10_states.png" alt="Top 10 Performing States by Revenue" class="chart" />
+                        </div>
+                    </div>
+                    
+                    <div class="product-section">
+                        <h1>📊 Bottom 10 Performing States by Revenue</h1>
+                        <div class="sub">Bar chart showing the lowest performing states by total revenue.</div>
+                        <div class="card">
+                            <img src="bottom10_states.png" alt="Bottom 10 Performing States by Revenue" class="chart" />
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Customers Comparison Section - Side by Side Tables -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>📊 Top 10 Customers by Revenue</h1>
+                        <div class="sub">Table showing the top performing customers by total revenue.</div>
+                        <div class="card">
+                            <table class="dataframe table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Customer Name</th>
+                                        <th>Total Revenue</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Aibox Company</td>
+                                        <td>$12,641,251.80</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>State Ltd</td>
+                                        <td>$12,220,639.20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Pixoboo Corp</td>
+                                        <td>$10,986,459.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Organon Corp</td>
+                                        <td>$10,955,826.60</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Realbuzz Ltd</td>
+                                        <td>$10,753,299.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>WOCKHARDT Group</td>
+                                        <td>$10,701,963.60</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Kare Corp</td>
+                                        <td>$10,635,633.60</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Colgate-Pa Group</td>
+                                        <td>$10,107,003.60</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Golden Corp</td>
+                                        <td>$10,007,669.40</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>Deseret Group</td>
+                                        <td>$9,942,223.80</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="product-section">
+                        <h1>📈 Bottom 10 Customers by Revenue</h1>
+                        <div class="sub">Table showing the lowest performing customers by total revenue.</div>
+                        <div class="card">
+                            <table class="dataframe table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Customer Name</th>
+                                        <th>Total Revenue</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>BB17 Company</td>
+                                        <td>$4,034,673.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Yodoo Ltd</td>
+                                        <td>$4,372,755.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Mycone Ltd</td>
+                                        <td>$4,534,238.40</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Voonyx Group</td>
+                                        <td>$4,670,918.40</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>SEINDNI Corp</td>
+                                        <td>$4,760,162.40</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Epic Group</td>
+                                        <td>$4,807,960.20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Quaxo Ltd</td>
+                                        <td>$5,026,206.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Aveda Group</td>
+                                        <td>$5,037,100.20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Zoomdog Corp</td>
+                                        <td>$5,047,914.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>Johnson Ltd</td>
+                                        <td>$5,083,410.60</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales Analyst Dashboard -->
+            <div id="sales-analyst-dashboard" class="dashboard">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Avg Profit Margin</h3>
+                        <div class="stat-value">22.8%</div>
+                        <div class="stat-change positive">+2.4%</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Channel Efficiency</h3>
+                        <div class="stat-value">$285</div>
+                        <div class="stat-change positive">+8.7%</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Correlation Score</h3>
+                        <div class="stat-value">0.78</div>
+                        <div class="stat-change positive">+0.05</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Seasonality Index</h3>
+                        <div class="stat-value">1.24</div>
+                        <div class="stat-change neutral">-0.02</div>
+                    </div>
+                </div>
+                
+                <!-- Correlation Heatmap Section - Half Width -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>🔥 Correlation Heatmap</h1>
+                        <div class="sub">Heatmap showing correlations between unit price, order quantity, and profit margin.</div>
+                        <div class="card">
+                            <img src="correlationheatmap.png" alt="Correlation Heatmap" class="chart" style="max-width: 400px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                    <div class="product-section">
+                        <h1>📊 Distribution of Profit Margins</h1>
+                        <div class="sub">Histogram showing the distribution of profit margins across products.</div>
+                        <div class="card">
+                            <img src="profitmargins.png" alt="Distribution of Profit Margins" class="chart" style="max-width: 400px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Seasonality of Orders Section -->
+                <div class="revenue-section">
+                    <h1>📅 Seasonality of Orders (Monthly Order Trend)</h1>
+                    <div class="sub">Line chart showing the seasonal patterns and trends in order volume over time.</div>
+                    <div class="card">
+                        <img src="seasonalityorders.png" alt="Seasonality of Orders" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Revenue vs Profit by Product Section -->
+                <div class="revenue-section">
+                    <h1>💰 Revenue vs Profit by Product</h1>
+                    <div class="sub">Scatter plot showing the relationship between revenue and profit for each product.</div>
+                    <div class="card">
+                        <img src="revenuevsprofitbyproduct.png" alt="Revenue vs Profit by Product" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Channel Share Section - Side by Side -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>📊 Revenue Share by Channel</h1>
+                        <div class="sub">Pie chart showing revenue distribution across different channels.</div>
+                        <div class="card">
+                            <img src="revenue_share_by_channel_pie_labels.png" alt="Revenue Share by Channel" class="chart" style="max-width: 400px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                    <div class="product-section">
+                        <h1>💼 Profit Share by Channel</h1>
+                        <div class="sub">Pie chart showing profit distribution across different channels.</div>
+                        <div class="card">
+                            <img src="profit_share_by_channel_pie_labels.png" alt="Profit Share by Channel" class="chart" style="max-width: 400px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales Executive Dashboard -->
+            <div id="sales-executive-dashboard" class="dashboard">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>My Total Orders</h3>
+                        <div class="stat-value">156</div>
+                        <div class="stat-change positive">+18</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>My Revenue</h3>
+                        <div class="stat-value">$89,450</div>
+                        <div class="stat-change positive">+24.5%</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Active Customers</h3>
+                        <div class="stat-value">42</div>
+                        <div class="stat-change positive">+7</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Monthly Profit</h3>
+                        <div class="stat-value">$21,340</div>
+                        <div class="stat-change positive">+15.2%</div>
+                    </div>
+                </div>
+                
+                <!-- Monthly Total Orders and Revenue Section -->
+                <div class="revenue-section">
+                    <h1>📊 Monthly Total Orders and Revenue</h1>
+                    <div class="sub">Bar chart of revenue by month and the detailed table.</div>
+                    <div class="card">
+                        <img src="monthly_revenue_bar.png" alt="Monthly Revenue Bar Chart" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Orders by Channel and Geographical Customer Distribution - Side by Side -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>📊 Orders by Channel</h1>
+                        <div class="sub">Pie chart showing the distribution of orders across different channels.</div>
+                        <div class="card">
+                            <img src="channelpie.png" alt="Orders by Channel Pie Chart" class="chart" style="max-width: 350px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                    <div class="product-section">
+                        <h1>🗺️ Geographical Customer Distribution</h1>
+                        <div class="sub">Map showing customer distribution and revenue across different states.</div>
+                        <div class="card" style="cursor: pointer;" onclick="window.location.href='us_revenue_map.html'">
+                            <img src="revenuebystate.png" alt="Geographical Customer Distribution by State" class="chart" style="max-width: 400px; margin: 0 auto; display: block;" />
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Sales Breakdown Section -->
+                <div class="revenue-section">
+                    <h1>📦 Product Sales Breakdown</h1>
+                    <div class="sub">Bar chart showing sales breakdown by product category.</div>
+                    <div class="card">
+                        <img src="productsales.png" alt="Product Sales Breakdown" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Monthly Profit Trend Section -->
+                <div class="revenue-section">
+                    <h1>📈 Monthly Profit Trend</h1>
+                    <div class="sub">Line chart showing the profit trend over time.</div>
+                    <div class="card">
+                        <img src="monthlyprofitline.png" alt="Monthly Profit Trend" class="chart" />
+                    </div>
+                </div>
+                
+                <!-- Products Comparison Section - Side by Side -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>🏆 Top 10 Products by Revenue</h1>
+                        <div class="sub">Bar chart showing the top performing products by total revenue.</div>
+                        <div class="card">
+                            <img src="output.png" alt="Top 10 Products by Revenue" class="chart" />
+                        </div>
+                    </div>
+                    
+                    <div class="product-section">
+                        <h1>📉 Bottom 10 Products by Revenue</h1>
+                        <div class="sub">Bar chart showing the lowest performing products by total revenue.</div>
+                        <div class="card">
+                            <img src="bottom10_products.png" alt="Bottom 10 Products by Revenue" class="chart" />
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Customers Comparison Section - Side by Side Tables -->
+                <div class="products-comparison">
+                    <div class="product-section">
+                        <h1>📊 Top 10 Customers by Revenue</h1>
+                        <div class="sub">Table showing the top performing customers by total revenue.</div>
+                        <div class="card">
+                            <table class="dataframe table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Customer Name</th>
+                                        <th>Total Revenue</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Aibox Company</td>
+                                        <td>$12,641,251.80</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>State Ltd</td>
+                                        <td>$12,220,639.20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Pixoboo Corp</td>
+                                        <td>$10,986,459.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Organon Corp</td>
+                                        <td>$10,955,826.60</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Realbuzz Ltd</td>
+                                        <td>$10,753,299.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>WOCKHARDT Group</td>
+                                        <td>$10,701,963.60</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Kare Corp</td>
+                                        <td>$10,635,633.60</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Colgate-Pa Group</td>
+                                        <td>$10,107,003.60</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Golden Corp</td>
+                                        <td>$10,007,669.40</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>Deseret Group</td>
+                                        <td>$9,942,223.80</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="product-section">
+                        <h1>📈 Bottom 10 Customers by Revenue</h1>
+                        <div class="sub">Table showing the lowest performing customers by total revenue.</div>
+                        <div class="card">
+                            <table class="dataframe table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Customer Name</th>
+                                        <th>Total Revenue</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>BB17 Company</td>
+                                        <td>$4,034,673.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Yodoo Ltd</td>
+                                        <td>$4,372,755.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Mycone Ltd</td>
+                                        <td>$4,534,238.40</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Voonyx Group</td>
+                                        <td>$4,670,918.40</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>SEINDNI Corp</td>
+                                        <td>$4,760,162.40</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Epic Group</td>
+                                        <td>$4,807,960.20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Quaxo Ltd</td>
+                                        <td>$5,026,206.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Aveda Group</td>
+                                        <td>$5,037,100.20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Zoomdog Corp</td>
+                                        <td>$5,047,914.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>Johnson Ltd</td>
+                                        <td>$5,083,410.60</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </main>
+    </div>
+
+    <!-- Visibility Control Modal -->
+    <div id="visibilityModal" class="visibility-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Card Visibility Settings</h2>
+                <button class="close-modal" onclick="closeVisibilityModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h3 id="modalCardTitle">Card Name</h3>
+                <p style="color: #7f8c8d; margin-bottom: 20px;">Select which roles can view this card:</p>
+                <div class="role-checkboxes">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="role-executive-viewer" value="executive-viewer">
+                        <label for="role-executive-viewer">Executive Viewer</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="role-sales-manager" value="sales-manager">
+                        <label for="role-sales-manager">Sales Manager</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="role-sales-analyst" value="sales-analyst">
+                        <label for="role-sales-analyst">Sales Analyst</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="role-sales-executive" value="sales-executive">
+                        <label for="role-sales-executive">Sales Executive</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-secondary" onclick="closeVisibilityModal()">Cancel</button>
+                <button class="modal-btn modal-btn-primary" onclick="saveVisibilitySettings()">Save Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth-check.js"></script>
+    <script src="script.js"></script>
+    <script src="add-visibility-controls.js"></script>
+    <script>
+        // Visibility Control System
+        let currentCardId = null;
+        let visibilitySettings = JSON.parse(localStorage.getItem('cardVisibility')) || {};
+
+        function openVisibilityModal(cardId, cardTitle) {
+            currentCardId = cardId;
+            document.getElementById('modalCardTitle').textContent = cardTitle;
+            document.getElementById('visibilityModal').classList.add('active');
+            
+            // Load current settings
+            const settings = visibilitySettings[cardId] || [];
+            document.querySelectorAll('.role-checkboxes input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = settings.includes(checkbox.value);
+            });
+        }
+
+        function closeVisibilityModal() {
+            document.getElementById('visibilityModal').classList.remove('active');
+            currentCardId = null;
+        }
+
+        function saveVisibilitySettings() {
+            if (!currentCardId) return;
+            
+            const selectedRoles = [];
+            document.querySelectorAll('.role-checkboxes input[type="checkbox"]:checked').forEach(checkbox => {
+                selectedRoles.push(checkbox.value);
+            });
+            
+            visibilitySettings[currentCardId] = selectedRoles;
+            localStorage.setItem('cardVisibility', JSON.stringify(visibilitySettings));
+            
+            // Save card data for customer dashboard
+            saveCardData();
+            
+            // Update visibility indicators
+            updateVisibilityIndicators();
+            
+            closeVisibilityModal();
+            
+            // Show success message
+            alert('Visibility settings saved successfully!');
+        }
+        
+        function saveCardData() {
+            const cardData = {};
+            const adminDashboard = document.getElementById('admin-dashboard');
+            
+            if (!adminDashboard) return;
+            
+            // Get all cards with data-card-id
+            const allCards = adminDashboard.querySelectorAll('[data-card-id]');
+            
+            allCards.forEach(card => {
+                const cardId = card.getAttribute('data-card-id');
+                cardData[cardId] = {
+                    className: card.className,
+                    html: card.innerHTML
+                };
+            });
+            
+            localStorage.setItem('cardData', JSON.stringify(cardData));
+            console.log('Card data saved:', Object.keys(cardData).length, 'cards');
+        }
+
+        function updateVisibilityIndicators() {
+            document.querySelectorAll('[data-card-id]').forEach(card => {
+                const cardId = card.getAttribute('data-card-id');
+                const settings = visibilitySettings[cardId] || [];
+                
+                // Remove existing indicator
+                const existingIndicator = card.querySelector('.visibility-indicator');
+                if (existingIndicator) {
+                    existingIndicator.remove();
+                }
+                
+                // Add new indicator if roles are selected
+                if (settings.length > 0) {
+                    const indicator = document.createElement('span');
+                    indicator.className = 'visibility-indicator';
+                    indicator.textContent = `Visible to ${settings.length} role(s)`;
+                    const h1 = card.querySelector('h1');
+                    if (h1) {
+                        h1.appendChild(indicator);
+                    }
+                }
+            });
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('visibilityModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVisibilityModal();
+            }
+        });
+
+        // Initialize visibility indicators on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for add-visibility-controls.js to finish adding controls
+            setTimeout(function() {
+                updateVisibilityIndicators();
+                saveCardData(); // Save card data for customer dashboard
+            }, 500);
+        });
+    </script>
+    
+    <script>
+        // Populate user info in navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const username = sessionStorage.getItem('username') || 'Admin';
+            const role = sessionStorage.getItem('role') || 'admin';
+            
+            // Update navigation user info
+            const navUsername = document.getElementById('navUsername');
+            const navUserRole = document.getElementById('navUserRole');
+            
+            if (navUsername) {
+                navUsername.textContent = username.charAt(0).toUpperCase() + username.slice(1);
+            }
+            
+            if (navUserRole) {
+                const roleNames = {
+                    'admin': 'Administrator',
+                    'executive-viewer': 'Executive Viewer',
+                    'sales-manager': 'Sales Manager',
+                    'sales-analyst': 'Sales Analyst',
+                    'sales-executive': 'Sales Executive'
+                };
+                navUserRole.textContent = roleNames[role] || role.replace('-', ' ');
+            }
+        });
+        
+        // Navigation sidebar toggle
+        function toggleNav() {
+            const sidebar = document.querySelector('.right-nav-sidebar');
+            const overlay = document.querySelector('.nav-overlay');
+            const body = document.body;
+            
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            body.classList.toggle('nav-open');
+        }
+        
+        // Logout function
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                sessionStorage.clear();
+                window.location.href = 'login.html';
+            }
+        }
+        
+        // Close nav when pressing Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const sidebar = document.querySelector('.right-nav-sidebar');
+                if (sidebar.classList.contains('active')) {
+                    toggleNav();
+                }
+            }
+        });
+    </script>
+</body>
+>>>>>>> 3ab6b0b (Add project files)
+</html>
