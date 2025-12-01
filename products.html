@@ -1,0 +1,152 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Sales Analytics - Sales Dashboard</title>
+    <link rel="stylesheet" href="product-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <h1><span class="beauty">bea</span><span class="on">·uty</span></h1>
+                    <div class="logo-subtitle">ON</div>
+                </div>
+                <div class="header-content">
+                    <h2><i class="fas fa-chart-line"></i> Product Sales Analytics</h2>
+                    <p>Comprehensive sales performance data for all skincare products</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="filter-nav">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">All Products</button>
+                <button class="filter-btn" data-category="cleansers">Cleansers</button>
+                <button class="filter-btn" data-category="serums">Serums</button>
+                <button class="filter-btn" data-category="moisturizers">Moisturizers</button>
+                <button class="filter-btn" data-category="masks">Masks & Treatments</button>
+                <button class="filter-btn" data-category="sun-care">Sun Care</button>
+                <button class="filter-btn" data-category="body-care">Body Care</button>
+            </div>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search products...">
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically generated -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Premium Skincare Collection. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Admin-only access check
+        (function() {
+            const loggedIn = sessionStorage.getItem('loggedIn');
+            const role = sessionStorage.getItem('role');
+            
+            // Redirect if not logged in or not admin
+            if (loggedIn !== 'true' || role !== 'admin') {
+                alert('Access Denied: Only administrators can access Product Analytics.');
+                window.location.href = 'login.html';
+                return;
+            }
+        })();
+    </script>
+    <script src="auth-check.js"></script>
+    <script src="products.js"></script>
+</body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Sales Analytics - Sales Dashboard</title>
+    <link rel="stylesheet" href="product-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <h1><span class="beauty">bea</span><span class="on">·uty</span></h1>
+                    <div class="logo-subtitle">ON</div>
+                </div>
+                <div class="header-content">
+                    <h2><i class="fas fa-chart-line"></i> Product Sales Analytics</h2>
+                    <p>Comprehensive sales performance data for all skincare products</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="filter-nav">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">All Products</button>
+                <button class="filter-btn" data-category="cleansers">Cleansers</button>
+                <button class="filter-btn" data-category="serums">Serums</button>
+                <button class="filter-btn" data-category="moisturizers">Moisturizers</button>
+                <button class="filter-btn" data-category="masks">Masks & Treatments</button>
+                <button class="filter-btn" data-category="sun-care">Sun Care</button>
+                <button class="filter-btn" data-category="body-care">Body Care</button>
+            </div>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search products...">
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically generated -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Premium Skincare Collection. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Admin-only access check
+        (function() {
+            const loggedIn = sessionStorage.getItem('loggedIn');
+            const role = sessionStorage.getItem('role');
+            
+            // Redirect if not logged in or not admin
+            if (loggedIn !== 'true' || role !== 'admin') {
+                alert('Access Denied: Only administrators can access Product Analytics.');
+                window.location.href = 'login.html';
+                return;
+            }
+        })();
+    </script>
+    <script src="auth-check.js"></script>
+    <script src="products.js"></script>
+</body>
+>>>>>>> 3ab6b0b (Add project files)
+</html>
