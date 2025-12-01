@@ -1,0 +1,31 @@
+<<<<<<< HEAD
+I was checking the documentation, still we need to add info for
+1. Table of contents
+2.Concept of operations
+3.Deployment and physical vie alignment is not there properly
+4.Process Measures/Metrics
+	Sprint Planning
+	Product Backlogs -- needs to be added
+5.Technical Risks:
+6.Resource Measures/Metrics 
+	Staffing Levels/Productivity
+	Tools Usage
+
+
+
+=======
+I was checking the documentation, still we need to add info for
+1. Table of contents
+2.Concept of operations
+3.Deployment and physical vie alignment is not there properly
+4.Process Measures/Metrics
+	Sprint Planning
+	Product Backlogs -- needs to be added
+5.Technical Risks:
+6.Resource Measures/Metrics 
+	Staffing Levels/Productivity
+	Tools Usage
+
+
+
+>>>>>>> 3ab6b0b (Add project files)

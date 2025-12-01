@@ -1,0 +1,240 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .dashboard { display: none; }
+        .dashboard.active { display: block; }
+        .role-btn { padding: 10px; margin: 5px; cursor: pointer; }
+        .role-btn.active { background: #007bff; color: white; }
+        .chart-container { width: 400px; height: 300px; margin: 20px 0; }
+        canvas { max-width: 100%; max-height: 100%; }
+    </style>
+</head>
+<body>
+    <h1>Debug Dashboard</h1>
+    
+    <div>
+        <button class="role-btn active" data-role="admin">Admin</button>
+        <button class="role-btn" data-role="test">Test</button>
+    </div>
+    
+    <div id="admin-dashboard" class="dashboard active">
+        <h2>Admin Dashboard</h2>
+        <div class="chart-container">
+            <canvas id="adminChart"></canvas>
+        </div>
+    </div>
+    
+    <div id="test-dashboard" class="dashboard">
+        <h2>Test Dashboard</h2>
+        <p>Test dashboard content</p>
+    </div>
+
+    <script>
+        console.log('Script starting...');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded');
+            console.log('Chart.js available:', typeof Chart !== 'undefined');
+            
+            // Role switching
+            const roleButtons = document.querySelectorAll('.role-btn');
+            const dashboards = document.querySelectorAll('.dashboard');
+            
+            console.log('Role buttons found:', roleButtons.length);
+            console.log('Dashboards found:', dashboards.length);
+            
+            roleButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const role = this.getAttribute('data-role');
+                    console.log('Switching to role:', role);
+                    
+                    // Update active button
+                    roleButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding dashboard
+                    dashboards.forEach(dashboard => dashboard.classList.remove('active'));
+                    const targetDashboard = document.getElementById(role + '-dashboard');
+                    if (targetDashboard) {
+                        targetDashboard.classList.add('active');
+                        console.log('Activated dashboard:', role + '-dashboard');
+                    } else {
+                        console.error('Dashboard not found:', role + '-dashboard');
+                    }
+                    
+                    // Create chart for admin
+                    if (role === 'admin') {
+                        createAdminChart();
+                    }
+                });
+            });
+            
+            // Initialize admin chart
+            createAdminChart();
+        });
+        
+        function createAdminChart() {
+            console.log('Creating admin chart...');
+            const canvas = document.getElementById('adminChart');
+            console.log('Canvas found:', !!canvas);
+            
+            if (canvas) {
+                try {
+                    // Destroy existing chart if any
+                    if (window.adminChartInstance) {
+                        window.adminChartInstance.destroy();
+                    }
+                    
+                    window.adminChartInstance = new Chart(canvas.getContext('2d'), {
+                        type: 'bar',
+                        data: {
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                            datasets: [{
+                                label: 'Revenue',
+                                data: [420, 380, 450, 520, 480],
+                                backgroundColor: '#e74c3c'
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false
+                        }
+                    });
+                    console.log('Chart created successfully!');
+                } catch (error) {
+                    console.error('Error creating chart:', error);
+                }
+            } else {
+                console.error('Canvas not found!');
+            }
+        }
+    </script>
+</body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .dashboard { display: none; }
+        .dashboard.active { display: block; }
+        .role-btn { padding: 10px; margin: 5px; cursor: pointer; }
+        .role-btn.active { background: #007bff; color: white; }
+        .chart-container { width: 400px; height: 300px; margin: 20px 0; }
+        canvas { max-width: 100%; max-height: 100%; }
+    </style>
+</head>
+<body>
+    <h1>Debug Dashboard</h1>
+    
+    <div>
+        <button class="role-btn active" data-role="admin">Admin</button>
+        <button class="role-btn" data-role="test">Test</button>
+    </div>
+    
+    <div id="admin-dashboard" class="dashboard active">
+        <h2>Admin Dashboard</h2>
+        <div class="chart-container">
+            <canvas id="adminChart"></canvas>
+        </div>
+    </div>
+    
+    <div id="test-dashboard" class="dashboard">
+        <h2>Test Dashboard</h2>
+        <p>Test dashboard content</p>
+    </div>
+
+    <script>
+        console.log('Script starting...');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded');
+            console.log('Chart.js available:', typeof Chart !== 'undefined');
+            
+            // Role switching
+            const roleButtons = document.querySelectorAll('.role-btn');
+            const dashboards = document.querySelectorAll('.dashboard');
+            
+            console.log('Role buttons found:', roleButtons.length);
+            console.log('Dashboards found:', dashboards.length);
+            
+            roleButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const role = this.getAttribute('data-role');
+                    console.log('Switching to role:', role);
+                    
+                    // Update active button
+                    roleButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding dashboard
+                    dashboards.forEach(dashboard => dashboard.classList.remove('active'));
+                    const targetDashboard = document.getElementById(role + '-dashboard');
+                    if (targetDashboard) {
+                        targetDashboard.classList.add('active');
+                        console.log('Activated dashboard:', role + '-dashboard');
+                    } else {
+                        console.error('Dashboard not found:', role + '-dashboard');
+                    }
+                    
+                    // Create chart for admin
+                    if (role === 'admin') {
+                        createAdminChart();
+                    }
+                });
+            });
+            
+            // Initialize admin chart
+            createAdminChart();
+        });
+        
+        function createAdminChart() {
+            console.log('Creating admin chart...');
+            const canvas = document.getElementById('adminChart');
+            console.log('Canvas found:', !!canvas);
+            
+            if (canvas) {
+                try {
+                    // Destroy existing chart if any
+                    if (window.adminChartInstance) {
+                        window.adminChartInstance.destroy();
+                    }
+                    
+                    window.adminChartInstance = new Chart(canvas.getContext('2d'), {
+                        type: 'bar',
+                        data: {
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                            datasets: [{
+                                label: 'Revenue',
+                                data: [420, 380, 450, 520, 480],
+                                backgroundColor: '#e74c3c'
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false
+                        }
+                    });
+                    console.log('Chart created successfully!');
+                } catch (error) {
+                    console.error('Error creating chart:', error);
+                }
+            } else {
+                console.error('Canvas not found!');
+            }
+        }
+    </script>
+</body>
+>>>>>>> 3ab6b0b (Add project files)
+</html>
