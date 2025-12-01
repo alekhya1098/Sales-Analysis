@@ -1,0 +1,130 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ccc; }
+        canvas { max-width: 400px; max-height: 300px; }
+    </style>
+</head>
+<body>
+    <h1>Dashboard Test Page</h1>
+    
+    <div class="test-section">
+        <h2>Chart.js Test</h2>
+        <canvas id="testChart"></canvas>
+    </div>
+    
+    <div class="test-section">
+        <h2>Console Output</h2>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        // Test Chart.js
+        document.addEventListener('DOMContentLoaded', function() {
+            const output = document.getElementById('output');
+            
+            function log(message) {
+                console.log(message);
+                output.innerHTML += '<p>' + message + '</p>';
+            }
+            
+            log('DOM loaded');
+            log('Chart.js available: ' + (typeof Chart !== 'undefined'));
+            
+            if (typeof Chart !== 'undefined') {
+                const ctx = document.getElementById('testChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                        datasets: [{
+                            label: 'Test Data',
+                            data: [12, 19, 3, 5, 2],
+                            backgroundColor: '#e74c3c'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false
+                    }
+                });
+                log('Test chart created successfully!');
+            } else {
+                log('Chart.js failed to load');
+            }
+        });
+    </script>
+</body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ccc; }
+        canvas { max-width: 400px; max-height: 300px; }
+    </style>
+</head>
+<body>
+    <h1>Dashboard Test Page</h1>
+    
+    <div class="test-section">
+        <h2>Chart.js Test</h2>
+        <canvas id="testChart"></canvas>
+    </div>
+    
+    <div class="test-section">
+        <h2>Console Output</h2>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        // Test Chart.js
+        document.addEventListener('DOMContentLoaded', function() {
+            const output = document.getElementById('output');
+            
+            function log(message) {
+                console.log(message);
+                output.innerHTML += '<p>' + message + '</p>';
+            }
+            
+            log('DOM loaded');
+            log('Chart.js available: ' + (typeof Chart !== 'undefined'));
+            
+            if (typeof Chart !== 'undefined') {
+                const ctx = document.getElementById('testChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                        datasets: [{
+                            label: 'Test Data',
+                            data: [12, 19, 3, 5, 2],
+                            backgroundColor: '#e74c3c'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false
+                    }
+                });
+                log('Test chart created successfully!');
+            } else {
+                log('Chart.js failed to load');
+            }
+        });
+    </script>
+</body>
+>>>>>>> 3ab6b0b (Add project files)
+</html>

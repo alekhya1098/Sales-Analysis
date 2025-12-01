@@ -1,0 +1,125 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Customer Dashboard Setup</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-result { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+    </style>
+</head>
+<body>
+    <h1>Customer Dashboard Setup Test</h1>
+    <div id="results"></div>
+    
+    <script>
+        const results = document.getElementById('results');
+        
+        function addResult(message, type) {
+            const div = document.createElement('div');
+            div.className = `test-result ${type}`;
+            div.textContent = message;
+            results.appendChild(div);
+        }
+        
+        // Test 1: Check localStorage
+        const visibilitySettings = JSON.parse(localStorage.getItem('cardVisibility'));
+        const cardData = JSON.parse(localStorage.getItem('cardData'));
+        
+        if (visibilitySettings) {
+            addResult(`✓ Visibility settings found: ${Object.keys(visibilitySettings).length} cards configured`, 'success');
+            
+            // Check for customer settings
+            let customerCards = 0;
+            Object.keys(visibilitySettings).forEach(cardId => {
+                if (visibilitySettings[cardId].includes('customer')) {
+                    customerCards++;
+                }
+            });
+            
+            if (customerCards > 0) {
+                addResult(`✓ ${customerCards} card(s) are visible to customers`, 'success');
+            } else {
+                addResult(`⚠ No cards are currently visible to customers. Go to Admin Dashboard and enable some cards for customers.`, 'info');
+            }
+        } else {
+            addResult('⚠ No visibility settings found. Please configure card visibility in Admin Dashboard.', 'info');
+        }
+        
+        if (cardData) {
+            addResult(`✓ Card data found: ${Object.keys(cardData).length} cards saved`, 'success');
+        } else {
+            addResult('✗ No card data found. Please visit the Admin Dashboard to initialize card data.', 'error');
+        }
+        
+        // Instructions
+        addResult('Instructions: 1) Open index.html (Admin Dashboard) 2) Click "Manage" on any card 3) Check "Customer" checkbox 4) Click "Save Settings" 5) Open customers.html', 'info');
+    </script>
+</body>
+</html>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Customer Dashboard Setup</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-result { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+    </style>
+</head>
+<body>
+    <h1>Customer Dashboard Setup Test</h1>
+    <div id="results"></div>
+    
+    <script>
+        const results = document.getElementById('results');
+        
+        function addResult(message, type) {
+            const div = document.createElement('div');
+            div.className = `test-result ${type}`;
+            div.textContent = message;
+            results.appendChild(div);
+        }
+        
+        // Test 1: Check localStorage
+        const visibilitySettings = JSON.parse(localStorage.getItem('cardVisibility'));
+        const cardData = JSON.parse(localStorage.getItem('cardData'));
+        
+        if (visibilitySettings) {
+            addResult(`✓ Visibility settings found: ${Object.keys(visibilitySettings).length} cards configured`, 'success');
+            
+            // Check for customer settings
+            let customerCards = 0;
+            Object.keys(visibilitySettings).forEach(cardId => {
+                if (visibilitySettings[cardId].includes('customer')) {
+                    customerCards++;
+                }
+            });
+            
+            if (customerCards > 0) {
+                addResult(`✓ ${customerCards} card(s) are visible to customers`, 'success');
+            } else {
+                addResult(`⚠ No cards are currently visible to customers. Go to Admin Dashboard and enable some cards for customers.`, 'info');
+            }
+        } else {
+            addResult('⚠ No visibility settings found. Please configure card visibility in Admin Dashboard.', 'info');
+        }
+        
+        if (cardData) {
+            addResult(`✓ Card data found: ${Object.keys(cardData).length} cards saved`, 'success');
+        } else {
+            addResult('✗ No card data found. Please visit the Admin Dashboard to initialize card data.', 'error');
+        }
+        
+        // Instructions
+        addResult('Instructions: 1) Open index.html (Admin Dashboard) 2) Click "Manage" on any card 3) Check "Customer" checkbox 4) Click "Save Settings" 5) Open customers.html', 'info');
+    </script>
+</body>
+</html>
+>>>>>>> 3ab6b0b (Add project files)

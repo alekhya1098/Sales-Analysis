@@ -1,0 +1,144 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Revenue Map - Geographical Distribution</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+            letter-spacing: 1px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            font-weight: 300;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.5px;
+        }
+        
+        .map-container {
+            padding: 30px;
+            background: #f8f9fa;
+        }
+        
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: white;
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .info-card h3 {
+            font-size: 0.9em;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .info-card .value {
+            font-size: 2em;
+            font-weight: 700;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🗺️ Geographical Revenue Distribution</h1>
+            <div class="subtitle">Interactive map showing revenue distribution across United States</div>
+        </div>
+        
+        <div class="map-container">
+            <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.4.1.min.js"></script>                <div id="b8570b03-80d0-48bb-9bbd-e1e28838815e" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("b8570b03-80d0-48bb-9bbd-e1e28838815e")) {                    Plotly.newPlot(                        "b8570b03-80d0-48bb-9bbd-e1e28838815e",                        [{"customdata":[[228785436.0,"CA",60.0],[111050965.7,"IL",41.98796896832365],[90204679.5,"FL",37.90286375346031],[84011903.0,"TX",36.60007779002602],[55534960.0,"NY",29.871954477779333],[54601690.2,"IN",29.62506137255847],[46830956.5,"NJ",27.48139968477732],[44251228.7,"CT",26.73087581746169],[39025315.8,"MI",25.14021090499842],[35011942.1,"MA",23.844798905274846],[28915853.3,"WA",21.725630142997815],[27683776.9,"CO",21.270934959613605],[25214518.7,"OH",20.32811702849866],[24520928.0,"MN",20.055065513107934],[24123068.6,"NC",19.896692050094934],[23388246.1,"AZ",19.600713191216876],[21385026.5,"VA",18.769348306642883],[20726912.3,"GA",18.487785240632135],[19361780.6,"MD",17.889111286283836],[19228068.7,"PA",17.829353024926753],[17914393.0,"UT",17.23082491971239],[16878358.6,"MO",16.74313731011142],[16100106.7,"OR",16.366867832326967],[14586503.0,"WI",15.608056681132831],[14123365.5,"TN",15.368078224095713],[13664576.3,"IA",15.126441144520955],[12154898.8,"NV",14.301239480808263],[11673343.0,"OK",14.027342921331782],[10996254.4,"LA",13.632489572902164],[10697648.8,"AL",13.454496472474203],[10222002.4,"KS",13.165761861047224],[9754690.8,"AR",12.875467728621322],[7338188.4,"SC",11.248658425596018],[7080091.0,"ID",11.059942699918443],[4936298.7,"NE",9.336057441320834],[4934610.3,"NM",9.334565469729318],[4415434.0,"KY",8.8630028422694],[3939981.9,"ND",8.406164537348044],[3562410.1,"RI",8.023338837559855],[3415070.4,"MT",7.868471989580076],[3399265.1,"MS",7.851662479246009],[2382365.9,"NH",6.672928755677658],[1769825.1,"WY",5.836071593008875],[1681224.3,"SD",5.703649139805844],[1674859.3,"DC",5.694003167719012],[1567284.1,"ME",5.528113389760974],[1248591.9,"DE",5.0]],"geo":"geo","hovertemplate":"<b>%{hovertext}</b><br>Revenue: $%{customdata[0]:,.2f}<extra></extra>","hovertext":["California","Illinois","Florida","Texas","New York","Indiana","New Jersey","Connecticut","Michigan","Massachusetts","Washington","Colorado","Ohio","Minnesota","North Carolina","Arizona","Virginia","Georgia","Maryland","Pennsylvania","Utah","Missouri","Oregon","Wisconsin","Tennessee","Iowa","Nevada","Oklahoma","Louisiana","Alabama","Kansas","Arkansas","South Carolina","Idaho","Nebraska","New Mexico","Kentucky","North Dakota","Rhode Island","Montana","Mississippi","New Hampshire","Wyoming","South Dakota","District of Columbia","Maine","Delaware"],"legendgroup":"","locationmode":"USA-states","locations":["CA","IL","FL","TX","NY","IN","NJ","CT","MI","MA","WA","CO","OH","MN","NC","AZ","VA","GA","MD","PA","UT","MO","OR","WI","TN","IA","NV","OK","LA","AL","KS","AR","SC","ID","NE","NM","KY","ND","RI","MT","MS","NH","WY","SD","DC","ME","DE"],"marker":{"color":"#636efa","size":[60.0,41.98796896832365,37.90286375346031,36.60007779002602,29.871954477779333,29.62506137255847,27.48139968477732,26.73087581746169,25.14021090499842,23.844798905274846,21.725630142997815,21.270934959613605,20.32811702849866,20.055065513107934,19.896692050094934,19.600713191216876,18.769348306642883,18.487785240632135,17.889111286283836,17.829353024926753,17.23082491971239,16.74313731011142,16.366867832326967,15.608056681132831,15.368078224095713,15.126441144520955,14.301239480808263,14.027342921331782,13.632489572902164,13.454496472474203,13.165761861047224,12.875467728621322,11.248658425596018,11.059942699918443,9.336057441320834,9.334565469729318,8.8630028422694,8.406164537348044,8.023338837559855,7.868471989580076,7.851662479246009,6.672928755677658,5.836071593008875,5.703649139805844,5.694003167719012,5.528113389760974,5.0],"sizemode":"area","sizeref":0.15,"symbol":"circle"},"mode":"markers","name":"","showlegend":false,"type":"scattergeo"}],                        {"geo":{"center":{},"domain":{"x":[0.0,1.0],"y":[0.0,1.0]},"scope":"usa"},"legend":{"itemsizing":"constant","tracegroupgap":0},"template":{"data":{"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"#E5ECF6","showlakes":true,"showland":true,"subunitcolor":"white"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2}}},"title":{"text":"US Revenue by State (Bubble Map)"}},                        {"responsive": true}                    )                };                            </script>
+        </div>
+        
+        <div class="info-cards">
+            <div class="info-card">
+                <h3>Total States</h3>
+                <div class="value">47</div>
+            </div>
+            <div class="info-card">
+                <h3>Top State</h3>
+                <div class="value">California</div>
+            </div>
+            <div class="info-card">
+                <h3>Total Revenue</h3>
+                <div class="value">$1.2B+</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

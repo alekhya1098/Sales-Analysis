@@ -1,0 +1,158 @@
+<<<<<<< HEAD
+🧑‍💼 1. Admin Dashboard
+
+Goal: Oversee business performance, budgets, and overall profitability.
+Plots:
+
+Revenue vs. Total Cost (Bar chart by month or region) – to track financial health.
+
+Profit Margin % by Region (Horizontal bar or map-style scatter) – for geographic insights.
+
+Total Orders by Channel (Pie chart or bar) – to see sales mix across online/offline.
+
+Top 5 Warehouses by Profit (Bar chart) – to optimize operations.
+
+Budget vs. Actual Revenue (Grouped bar or line chart) – to monitor target achievement.
+
+🧑‍💼 2. Executive Viewer
+
+Goal: Quick high-level KPIs and trends.
+Plots:
+
+Revenue & Profit Trend Over Time (Line chart by order_month).
+
+Regional Revenue Distribution (Pie or choropleth-like scatter using latitude/longitude).
+
+Top 10 Performing States (Bar chart).
+
+Year-over-Year Growth % (Line or bar).
+
+Channel Contribution (Stacked bar of revenue by channel).
+
+👨‍💼 3. Sales Manager
+
+Goal: Monitor team and territory performance, identify bottlenecks.
+Plots:
+
+Top 10 Sales Executives by Revenue (Bar chart).
+
+Sales by Region/State (Heatmap or bar chart).
+
+Profit Margin by Product Category (Bar or boxplot).
+
+Monthly Sales Performance Trend (Line chart).
+
+Orders vs. Budgets (Scatter plot).
+
+📊 4. Sales Analyst
+
+Goal: Deep-dive analysis of sales patterns and efficiency.
+Plots:
+
+Revenue vs. Profit Scatter Plot – to find high-revenue/low-profit products.
+
+Correlation Heatmap (between unit price, order quantity, profit margin).
+
+Distribution of Profit Margins (Histogram).
+
+Seasonality of Orders (Line plot by order_month).
+
+Channel Efficiency (Bar chart: revenue per order or profit per order by channel).
+
+Cost Structure Analysis (Stacked bar: total_unit_cost vs. revenue vs. profit).
+
+👨‍💼 5. Sales Executive
+
+Goal: Track personal sales, customers, and performance opportunities.
+Plots:
+
+Total Orders and Revenue (self) (KPI number or bar by month).
+
+Top 10 Customers by Revenue (Bar chart).
+
+Orders by Channel (Pie chart).
+
+Product Sales Breakdown (Bar chart by product_name).
+
+Geographical Customer Map (Scatter by state or county).
+
+=======
+🧑‍💼 1. Admin Dashboard
+
+Goal: Oversee business performance, budgets, and overall profitability.
+Plots:
+
+Revenue vs. Total Cost (Bar chart by month or region) – to track financial health.
+
+Profit Margin % by Region (Horizontal bar or map-style scatter) – for geographic insights.
+
+Total Orders by Channel (Pie chart or bar) – to see sales mix across online/offline.
+
+Top 5 Warehouses by Profit (Bar chart) – to optimize operations.
+
+Budget vs. Actual Revenue (Grouped bar or line chart) – to monitor target achievement.
+
+🧑‍💼 2. Executive Viewer
+
+Goal: Quick high-level KPIs and trends.
+Plots:
+
+Revenue & Profit Trend Over Time (Line chart by order_month).
+
+Regional Revenue Distribution (Pie or choropleth-like scatter using latitude/longitude).
+
+Top 10 Performing States (Bar chart).
+
+Year-over-Year Growth % (Line or bar).
+
+Channel Contribution (Stacked bar of revenue by channel).
+
+👨‍💼 3. Sales Manager
+
+Goal: Monitor team and territory performance, identify bottlenecks.
+Plots:
+
+Top 10 Sales Executives by Revenue (Bar chart).
+
+Sales by Region/State (Heatmap or bar chart).
+
+Profit Margin by Product Category (Bar or boxplot).
+
+Monthly Sales Performance Trend (Line chart).
+
+Orders vs. Budgets (Scatter plot).
+
+📊 4. Sales Analyst
+
+Goal: Deep-dive analysis of sales patterns and efficiency.
+Plots:
+
+Revenue vs. Profit Scatter Plot – to find high-revenue/low-profit products.
+
+Correlation Heatmap (between unit price, order quantity, profit margin).
+
+Distribution of Profit Margins (Histogram).
+
+Seasonality of Orders (Line plot by order_month).
+
+Channel Efficiency (Bar chart: revenue per order or profit per order by channel).
+
+Cost Structure Analysis (Stacked bar: total_unit_cost vs. revenue vs. profit).
+
+👨‍💼 5. Sales Executive
+
+Goal: Track personal sales, customers, and performance opportunities.
+Plots:
+
+Total Orders and Revenue (self) (KPI number or bar by month).
+
+Top 10 Customers by Revenue (Bar chart).
+
+Orders by Channel (Pie chart).
+
+Product Sales Breakdown (Bar chart by product_name).
+
+Geographical Customer Map (Scatter by state or county).
+
+>>>>>>> 3ab6b0b (Add project files)
+Monthly Profit Trend (self) (Line chart).

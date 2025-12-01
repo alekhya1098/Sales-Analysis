@@ -1,0 +1,244 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sales Analysis Dashboard</h1>
+            <div class="header-controls">
+                <div class="role-selector">
+                    <button class="role-btn active" data-role="admin">Admin</button>
+                    <button class="role-btn" data-role="test">Test</button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div id="admin-dashboard" class="dashboard active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Revenue</h3>
+                        <div class="stat-value">$2.4M</div>
+                        <div class="stat-change positive">+18.2%</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Profit Margin</h3>
+                        <div class="stat-value">24.5%</div>
+                        <div class="stat-change positive">+3.1%</div>
+                    </div>
+                </div>
+                
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <h3>Revenue Chart</h3>
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="test-dashboard" class="dashboard">
+                <h2>Test Dashboard</h2>
+                <p>This is a test dashboard to verify switching works.</p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        console.log('Working dashboard script loaded');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM ready');
+            console.log('Chart.js:', typeof Chart !== 'undefined');
+            
+            // Role switching
+            const roleButtons = document.querySelectorAll('.role-btn');
+            const dashboards = document.querySelectorAll('.dashboard');
+            
+            roleButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const role = this.getAttribute('data-role');
+                    console.log('Switching to:', role);
+                    
+                    roleButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    dashboards.forEach(dashboard => dashboard.classList.remove('active'));
+                    document.getElementById(role + '-dashboard').classList.add('active');
+                    
+                    if (role === 'admin') {
+                        createChart();
+                    }
+                });
+            });
+            
+            // Create initial chart
+            setTimeout(createChart, 100);
+        });
+        
+        function createChart() {
+            console.log('Creating chart...');
+            const canvas = document.getElementById('revenueChart');
+            
+            if (canvas && typeof Chart !== 'undefined') {
+                try {
+                    new Chart(canvas.getContext('2d'), {
+                        type: 'bar',
+                        data: {
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                            datasets: [{
+                                label: 'Revenue ($K)',
+                                data: [420, 380, 450, 520, 480, 560],
+                                backgroundColor: '#e74c3c'
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                    console.log('Chart created successfully!');
+                } catch (error) {
+                    console.error('Chart creation error:', error);
+                }
+            } else {
+                console.error('Canvas or Chart.js not available');
+            }
+        }
+    </script>
+</body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sales Analysis Dashboard</h1>
+            <div class="header-controls">
+                <div class="role-selector">
+                    <button class="role-btn active" data-role="admin">Admin</button>
+                    <button class="role-btn" data-role="test">Test</button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div id="admin-dashboard" class="dashboard active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Revenue</h3>
+                        <div class="stat-value">$2.4M</div>
+                        <div class="stat-change positive">+18.2%</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Profit Margin</h3>
+                        <div class="stat-value">24.5%</div>
+                        <div class="stat-change positive">+3.1%</div>
+                    </div>
+                </div>
+                
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <h3>Revenue Chart</h3>
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="test-dashboard" class="dashboard">
+                <h2>Test Dashboard</h2>
+                <p>This is a test dashboard to verify switching works.</p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        console.log('Working dashboard script loaded');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM ready');
+            console.log('Chart.js:', typeof Chart !== 'undefined');
+            
+            // Role switching
+            const roleButtons = document.querySelectorAll('.role-btn');
+            const dashboards = document.querySelectorAll('.dashboard');
+            
+            roleButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const role = this.getAttribute('data-role');
+                    console.log('Switching to:', role);
+                    
+                    roleButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    dashboards.forEach(dashboard => dashboard.classList.remove('active'));
+                    document.getElementById(role + '-dashboard').classList.add('active');
+                    
+                    if (role === 'admin') {
+                        createChart();
+                    }
+                });
+            });
+            
+            // Create initial chart
+            setTimeout(createChart, 100);
+        });
+        
+        function createChart() {
+            console.log('Creating chart...');
+            const canvas = document.getElementById('revenueChart');
+            
+            if (canvas && typeof Chart !== 'undefined') {
+                try {
+                    new Chart(canvas.getContext('2d'), {
+                        type: 'bar',
+                        data: {
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                            datasets: [{
+                                label: 'Revenue ($K)',
+                                data: [420, 380, 450, 520, 480, 560],
+                                backgroundColor: '#e74c3c'
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                    console.log('Chart created successfully!');
+                } catch (error) {
+                    console.error('Chart creation error:', error);
+                }
+            } else {
+                console.error('Canvas or Chart.js not available');
+            }
+        }
+    </script>
+</body>
+>>>>>>> 3ab6b0b (Add project files)
+</html>
